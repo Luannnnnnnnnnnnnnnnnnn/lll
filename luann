@@ -1,0 +1,49 @@
+let palavra;
+
+function setup() {
+createCanvas(400, 400);
+
+palavra = randomWord();
+
+}
+
+function randomWord() {
+
+let words = ["Walker", "Path", "Walks"];
+
+return random(words);
+}
+
+function initializeColors() {
+background("white");
+fill("black");
+textSize(64);
+textAlign(CENTER, CENTER);
+}
+
+function partialWord(min, max) {
+let amount = map(mouseX, min, max, 1, palavra.length);
+let partial = palavra.substring(0, amount);
+return partial;
+}
+
+function draw() {
+
+initializeColors();
+
+let text = partialWord(0, width);
+
+text(text, 200, 200);
+
+}
+
+function nightMode(time) {
+if (time > 18) {
+console.log("You need to turn on dark mode!");
+} else {
+console.log("Night mode is not necessary at this time.");
+}
+}
+
+nightMode(15);
+nightMode(20);
